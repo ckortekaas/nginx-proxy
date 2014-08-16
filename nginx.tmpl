@@ -51,6 +51,8 @@ server {
 	location / {
 		proxy_pass http://{{ $host }};
 		include /etc/nginx/proxy_params;
+		#Include a allow/deny ACL config for the virtual host
+		include /etc/nginx/acls/{{$value.Env.VIRTUAL_HOST}}.conf
 
 		# HTTP 1.1 support
 		proxy_http_version 1.1;
