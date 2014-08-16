@@ -52,7 +52,7 @@ server {
 		proxy_pass http://{{ $host }};
 		include /etc/nginx/proxy_params;
 		#Include a allow/deny ACL config for the virtual host
-		include /etc/nginx/acls/{{$value.Env.VIRTUAL_HOST}}.conf;
+		include /etc/nginx/acls/{{ $host }}.conf;
 		#Deny all by default unless allowed in above conf include
 		deny all;
 
