@@ -48,6 +48,9 @@ server {
 	error_log /proc/self/fd/2;
 	access_log /proc/self/fd/1;
 
+  #Include extra per-host config for the virtual host eg for ssl
+  include /etc/nginx/extra/{{ $host }}.conf;
+
 	location / {
 		proxy_pass http://{{ $host }};
 		include /etc/nginx/proxy_params;
