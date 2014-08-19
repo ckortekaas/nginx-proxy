@@ -1,6 +1,10 @@
 server {
-	listen 80 default_server;
+	listen 443 default_server;
 	server_name _; # This is just an invalid value which will never trigger on a real hostname.
+
+	#Include baseline ssl config, not provided by this repo
+  include /etc/nginx/extra/default.conf;
+
 	error_log /proc/self/fd/2;
 	access_log /proc/self/fd/1;
 	return 503;
